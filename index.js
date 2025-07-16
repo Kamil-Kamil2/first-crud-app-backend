@@ -2,7 +2,12 @@ import express from 'express'
 import mongoose from 'mongoose';
 import Product from './models/product.model.js'
 import productRoute from './routes/product.route.js'
+import cors from 'cors';
 const app = express()
+
+app.use(cors());
+
+fetch('http://localhost:3000/api/products')
 
 app.use(express.json())
 // app.use(express.urlencoded({extended: false}))
