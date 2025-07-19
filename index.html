@@ -1,19 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Product List</h1>
-  <ul id="product-list"></ul>
+  <h1 class="main">Product List</h1>
+  <ul id="product-list" class="list"></ul>
   <h1>Add New Product</h1>
   <form id="product-form">
-    <input type="text" id="product-name" placeholder="Product name" required /><br><br>
-    <input type="text" id="product-quantity" placeholder="Product quantity" required /><br><br>
-    <input type="text" id="product-price" placeholder="Product price" required /><br><br>
+    <input type="text" id="product-name" autocomplete="off" placeholder="Product name" required /><br><br>
+    <input type="text" id="product-quantity" autocomplete="off" placeholder="Product quantity" required /><br><br>
+    <input type="text" id="product-price" autocomplete="off" placeholder="Product price" required /><br><br>
     <button type="submit">Add Product</button>
   </form>
+  <h1>Find Product by ID</h1>
+<form id="find-product-form">
+  <input type="text" id="find-product-id" autocomplete="off" placeholder="Enter Product ID" required /><br><br>
+  <button type="submit">Find Product</button>
+</form>
+
+<div id="single-product-result"></div>
+
+<h1>Edit existing form by ID</h1>
+<form id="update-existing-form">
+  <input type="text" id="edit-product-id" autocomplete="off" placeholder="Enter Product ID" required /> <br><br>
+  <input type="text" id="u-product-name" autocomplete="off" placeholder="Product name" required /> <br><br>
+    <input type="text" id="u-product-quantity" autocomplete="off" placeholder="Product quantity" required /><br><br>
+    <input type="text" id="u-product-price" autocomplete="off" placeholder="Product price" required /><br><br>
+  <button type="submit">Update Product</button>
+</form>
+
+<div id="updated-product-result"></div>
+
+<h1>Delete Product by ID</h1>
+<form id="delete-product-form">
+  <input type="text" id="delete-product-id" autocomplete="off" placeholder="Enter Product ID" required /> <br><br>
+  <button type="submit">Delete Product</button>
+</form>
 
   <script src="app.js" type="module"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </body>
 </html>
