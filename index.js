@@ -8,15 +8,17 @@ const app = express()
 
 app.use(cors());
 
-fetch('http://localhost:3000/api/products')
+fetch('https://first-crud-app-backend.onrender.com/api/products')
 
 app.use(express.json())
 // app.use(express.urlencoded({extended: false}))
 
 app.use("/api/products", productRoute)
 
-app.listen(3000, () =>{
-    console.log('Server is running on port 3000')
+const PORT = process.env.PORT || 3000; // Use the port provided by the environment, or default to 3000 for local development
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`); // Make the log dynamic too
 });
 
 app.get("/", (req, res) => {

@@ -1,5 +1,5 @@
 function loadProducts() {
-  fetch('http://localhost:3000/api/products')
+  fetch('https://first-crud-app-backend.onrender.com/api/products')
     .then(response => response.json())
     .then(data => {
       const list = document.getElementById('product-list');
@@ -29,7 +29,7 @@ document.getElementById('product-form').addEventListener('submit', function (e) 
   const quantity = document.getElementById('product-quantity').value;
   const price = document.getElementById('product-price').value;
 
-  fetch('http://localhost:3000/api/products', {
+  fetch('https://first-crud-app-backend.onrender.com/api/products', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, quantity, price })
@@ -47,7 +47,7 @@ document.getElementById('product-form').addEventListener('submit', function (e) 
 document.getElementById('find-product-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const id = document.getElementById('find-product-id').value;
-  fetch(`http://localhost:3000/api/products/${id}`)
+  fetch(`https://first-crud-app-backend.onrender.com/api/products/${id}`)
     .then(response => {
       if (!response.ok) throw new Error('Product not found!');
       return response.json();
@@ -75,7 +75,7 @@ document.getElementById('update-existing-form').addEventListener('submit', funct
 
   const id = document.getElementById('edit-product-id').value;
 
-  fetch(`http://localhost:3000/api/products/${id}`, {
+  fetch(`https://first-crud-app-backend.onrender.com/api/products/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, quantity, price })
@@ -110,14 +110,14 @@ document.getElementById('delete-product-form').addEventListener('submit', functi
 
 window.deleteProduct = function (id) {
   // Fetch product details first
-  fetch(`http://localhost:3000/api/products/${id}`)
+  fetch(`https://first-crud-app-backend.onrender.com/api/products/${id}`)
     .then(response => response.json())
     .then(product => {
       const name = product.name || "this product";
       if (!confirm(`Are you sure you want to delete ${name}?`))
         return;
       // Now actually delete
-      fetch(`http://localhost:3000/api/products/${id}`, { method: 'DELETE' })
+      fetch(`https://first-crud-app-backend.onrender.com/api/products/${id}`, { method: 'DELETE' })
         .then(response => response.json())
         .then(data => {
           loadProducts();
